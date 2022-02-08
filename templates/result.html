@@ -1,0 +1,24 @@
+<!doctype html>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<h4 style="text-align:left">{{date}}</h4>
+<div class="center-on-page">
+{% for d in data %}
+ {% set my_string = "static/img/" + d['weather'][0]['icon']+ ".svg" %}
+   
+   <h1>{{ d['name'] }}, {{ d['sys']['country'] }}</h1>
+   
+   <h1>
+      <img src="{{ my_string }}" class="svg" fill="white"  vertical-align="middle" height="100" width="100">
+      {{ d['weather'][0]['description']}} 
+   </h1>
+   
+   <h1>{{ d['main']['temp']}} °C</h1>
+   <h3>Feels Like {{ d['main']['feels_like']}} °C</h3>
+   <h4>
+      Wind - {{ d['wind']['speed']}} m/s |   
+      Clouds - {{ d['clouds']['all']}} % |   
+      Humidity - {{ d['main']['humidity']}} %
+   </h4>
+{% endfor %}
+<a href="{{ url_for('index') }}"><button>Back</button></a>
+</div>
