@@ -1,4 +1,4 @@
-# AppEngine_Weather
+# Weather Application on Google App Engine
 Weather application hosted on Google App Engine.
 
 This application is developed using python and flask. It is used to get current weather updates of different cities. 
